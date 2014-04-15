@@ -1,7 +1,7 @@
 package gorph
 
 type Node struct {
-	id int
-	val string
+	key interface{}
+	value interface{}
 	edges []Edge
 }
