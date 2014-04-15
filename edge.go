@@ -6,6 +6,6 @@ pointing to each other.
 */
 type Edge struct {
 	target *Node
-	weight float32
+	weight float64
 }
 

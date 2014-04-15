@@ -2,7 +2,7 @@ package gorph
 
 import (
 	"testing"
-	"fmt"
+	//"fmt"
 )
 
 func TestDijkstra(t *testing.T) {
@@ -26,8 +26,6 @@ func TestDijkstra(t *testing.T) {
 	g.AddEdge("G", "F", 2.0)
 	g.AddEdge("F", "H", 1.0)
 	g.AddEdge("H", "E", 1.0)
-	fmt.Println(g)
-	g.RemoveNode("C")
-	g.RemoveEdge("A", "B")
-	fmt.Println(g)
+	// fmt.Println(g)
+	g.Dijkstra("A", "H")
 }

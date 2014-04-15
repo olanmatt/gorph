@@ -5,7 +5,7 @@ type Graph struct {
 }
 
 /*
-Runs in O(n) time
+Runs in O(n) time.
 */
 func (g *Graph) AddNode(key interface{}, value interface{}){
 	if g.Search(key) == nil {
@@ -13,8 +13,10 @@ func (g *Graph) AddNode(key interface{}, value interface{}){
 	}
 }
 
-
-func (g *Graph) AddEdge(a interface{}, b interface{}, weight float32){
+/*
+Runs in O(n) time.
+*/
+func (g *Graph) AddEdge(a interface{}, b interface{}, weight float64){
 	bn := g.Search(b)
 	if bn != nil {
 		for i, n := range g.nodes {
