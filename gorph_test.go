@@ -27,4 +27,7 @@ func TestDijkstra(t *testing.T) {
 	g.AddEdge("F", "H", 1.0)
 	g.AddEdge("H", "E", 1.0)
 	fmt.Println(g)
+	g.RemoveNode("C")
+	g.RemoveEdge("A", "B")
+	fmt.Println(g)
 }
