@@ -20,7 +20,7 @@ func (g *Graph) GetNodes() []Node {
 Lists all edges in graph.
 TODO check if address of returned array is same as one in struct
 */
-func (g *Graph) GetEdges() []*Edges {
+func (g *Graph) GetEdges() []*Edge {
 	return g.edges
 }
 
