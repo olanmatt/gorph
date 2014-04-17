@@ -2,10 +2,9 @@ package gorph
 
 import (
 	"testing"
-	//"fmt"
 )
 
-func TestDijkstra(t *testing.T) {
+func TestGraph(t *testing.T) {
 	g := Graph{}
 	g.AddNode("A", "hello")
 	g.AddNode("B", "world")
@@ -26,6 +25,4 @@ func TestDijkstra(t *testing.T) {
 	g.AddEdge("G", "F", 2.0)
 	g.AddEdge("F", "H", 1.0)
 	g.AddEdge("H", "E", 1.0)
-	// fmt.Println(g)
-	g.Dijkstra("A", "H")
 }

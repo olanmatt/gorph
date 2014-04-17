@@ -5,6 +5,15 @@ type Graph struct {
 }
 
 /*
+adjacent(G, x, y): tests whether there is an edge from node x to node y.
+neighbors(G, x): lists all nodes y such that there is an edge from x to y.
+add(G, x, y): adds to G the edge from x to y, if it is not there.
+delete(G, x, y): removes the edge from x to y, if it is there.
+get_node_value(G, x): returns the value associated with the node x.
+set_node_value(G, x, a): sets the value associated with the node x to a.
+*/
+
+/*
 Runs in O(n) time.
 */
 func (g *Graph) AddNode(key interface{}, value interface{}){
