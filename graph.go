@@ -2,19 +2,44 @@ package gorph
 
 type Graph struct {
 	nodes []Node
+	// edges [](*Edges)
+	// points to all edges so they can be searched through much faster
+	// eg when deleting a node, need to search for all nodes that point to the
+	// deleted node
 }
 
 /*
-adjacent(G, x, y): tests whether there is an edge from node x to node y.
-neighbors(G, x): lists all nodes y such that there is an edge from x to y.
-add(G, x, y): adds to G the edge from x to y, if it is not there.
-delete(G, x, y): removes the edge from x to y, if it is there.
 get_node_value(G, x): returns the value associated with the node x.
 set_node_value(G, x, a): sets the value associated with the node x to a.
 */
 
 /*
-Runs in O(n) time.
+Lists all nodes in graph.
+Runs in O(1) time.
+*/
+func (g *Graph) GetNodes() []Node {
+	return g.nodes
+}
+
+/*
+Tests wheather there is an edge from node x to y.
+Runs in O() time.
+*/
+func (g *Graph) Adjacent(x interface{}, y interface{}) bool{
+	return true
+}
+
+/*
+Lists all nodes y such that there is an edge from x to y.
+Runs in O() time.
+*/
+func (g *Graph) Neighbors(x interface{}, y interface{}) [](*Node) {
+	return nil
+}
+
+/*
+Adds the node with the key-value pair into graph, if it is not there.
+Runs in O(|V|) time.
 */
 func (g *Graph) AddNode(key interface{}, value interface{}){
 	if g.Search(key) == nil {
@@ -23,7 +48,9 @@ func (g *Graph) AddNode(key interface{}, value interface{}){
 }
 
 /*
-Runs in O(n) time.
+Adds the edge from x to y, if it is not there.
+TODO need to check if it is not there
+Runs in O(2|V| + |E|) time.
 */
 func (g *Graph) AddEdge(a interface{}, b interface{}, weight float64){
 	bn := g.Search(b)
@@ -37,9 +64,10 @@ func (g *Graph) AddEdge(a interface{}, b interface{}, weight float64){
 }
 
 /*
-Runs in O(n) time.
+Removes the node with the key from the graph, if it is there.
+Runs in O(|V|) time.
 */
-func (g *Graph) RemoveNode(key interface{}) {
+func (g *Graph) DeleteNode(key interface{}) {
 	for i, n := range g.nodes {
 		if n.key == key {
 			g.nodes = append(g.nodes[:i], g.nodes[i+1:]...)
@@ -49,9 +77,10 @@ func (g *Graph) RemoveNode(key interface{}) {
 }
 
 /*
-Runs in O(n) time.
+Removes the edge from x to y, if it is there.
+Runs in O(|V| + |E|) time.
 */
-func (g *Graph) RemoveEdge(source interface{}, target interface{}){
+func (g *Graph) DeleteEdge(source interface{}, target interface{}){
 	for i, n := range g.nodes {
 		if n.key == source {
 			for j, e := range g.nodes[i].edges{
@@ -65,7 +94,8 @@ func (g *Graph) RemoveEdge(source interface{}, target interface{}){
 }
 
 /*
-Runs in O(n) time.
+
+Runs in O(|V|) time.
 */
 func (g *Graph) Search(key interface{}) *Node{
 	for i, n := range g.nodes {
@@ -75,4 +105,3 @@ func (g *Graph) Search(key interface{}) *Node{
 	}
 	return nil
 }
-
