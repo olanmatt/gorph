@@ -2,7 +2,7 @@ package gorph
 
 type Graph struct {
 	nodes []Node
-	edges []*Edges
+	edges []*Edge
 	// points to all edges so they can be searched through much faster
 	// eg when deleting a node, need to search for all nodes that point to the
 	// deleted node
